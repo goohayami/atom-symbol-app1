@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.atomic-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+ }
+
+#input0 {
+  width: 100px;
+  margin-right: 2px;
+}
+
+.symbol {
+  width: 50px;
+  height: 35px;
+  text-align: center;
+  padding-top: 8px;
+  background-color: rgb(222, 222, 7);
+}
+
+.symbol-name {
+  width: 100px;
+  text-align: center;
+  padding-top: 8px;
+  background-color: aquamarine;
+}
