@@ -1,14 +1,15 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  user-select: none;
 }
 .atomic-container {
   display: flex;
   justify-content: center;
   margin-top: 2px;
- }
+}
 
-#input0 {
+.input-text {
   width: 100px;
   margin-right: 2px;
 }
@@ -26,4 +27,9 @@ body {
   text-align: center;
   padding-top: 8px;
   background-color: aquamarine;
+  color: aquamarine;
+}
+
+.symbol-appear {
+  color: black;
 }
