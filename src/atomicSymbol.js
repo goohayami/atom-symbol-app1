@@ -76,21 +76,24 @@ const atomicSymbol = {
   ],
 };
 
+// 元素の記号の配列をそれぞれ取り出しdivに書き出す
 for (let i = 0; i < atomicSymbol.symbol.length; i++) {
   const symbolContainer = document.getElementById("symbol" + [i]);
   symbolContainer.innerHTML = `${atomicSymbol.symbol[i]}`;
 }
 
+// 元素の名前をそれぞれ取り出し、divに書き出す
 for (let i = 0; i < atomicSymbol.name.length; i++) {
   const nameContainer = document.getElementById("name" + [i]);
   nameContainer.innerHTML = `${atomicSymbol.name[i]}`;
 }
 
-// 入力されたテキストを取得
+// ボタンと元素名を取得
 for (let i = 0; i < atomicSymbol.symbol.length; i++) {
   const inputBtn = document.getElementById("btn" + [i]);
   const nameContainer = document.getElementById("name" + [i]);
 
+  // 入力されたテキストを取得
   inputBtn.addEventListener("click", () => {
     const inputText = document.getElementById("input" + [i]).value;
 
@@ -103,4 +106,25 @@ for (let i = 0; i < atomicSymbol.symbol.length; i++) {
       document.getElementById("input" + [i]).value = "";
     }
   });
+}
+
+// エンターキーを押して入力完了
+for (let i = 0; i < atomicSymbol.symbol.length; i++) {
+  const inputText = document.getElementById("input" + [i]);
+  const nameContainer = document.getElementById("name" + [i]);
+  inputText.addEventListener("keypress", enterkeyClick);
+  function enterkeyClick(e) {
+    if (e.keyCode === 13) {
+      if (
+        document.getElementById("input" + [i]).value === atomicSymbol.name[i]
+      ) {
+        document.getElementById("input" + [i]).value = "";
+        alert("正解です！");
+        nameContainer.classList.add("symbol-appear");
+      } else {
+        alert("もう一度！");
+        document.getElementById("input" + [i]).value = "";
+      }
+    }
+  }
 }

@@ -2,13 +2,13 @@ body {
   margin: 0;
   padding: 0;
   user-select: none;
-  background-color: rgb(43, 39, 39);
+  background-color: rgb(120, 187, 215);
 }
 .header {
   display: flex;
   justify-content: center;
   margin-top: 2px;
-  color: white;
+  color: rgb(51, 25, 25);
 }
 .atomic-container {
   display: flex;
@@ -44,8 +44,8 @@ body {
 }
 
 .symbol-appear {
-  color:black;
-  font-weight:bolder;
+  color: black;
+  font-weight: bolder;
   background-color: tomato;
 }
 
