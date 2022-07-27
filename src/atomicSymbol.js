@@ -76,6 +76,8 @@ const atomicSymbol = {
   ],
 };
 
+// 残りのカウントダウン用に問題数を取得
+let number = atomicSymbol.symbol.length;
 // 元素の記号の配列をそれぞれ取り出しdivに書き出す
 for (let i = 0; i < atomicSymbol.symbol.length; i++) {
   const symbolContainer = document.getElementById("symbol" + [i]);
@@ -88,21 +90,26 @@ for (let i = 0; i < atomicSymbol.name.length; i++) {
   nameContainer.innerHTML = `${atomicSymbol.name[i]}`;
 }
 
-// ボタンと元素名を取得
+// ボタンを押して入力完了
 for (let i = 0; i < atomicSymbol.symbol.length; i++) {
   const inputBtn = document.getElementById("btn" + [i]);
   const nameContainer = document.getElementById("name" + [i]);
+  const displayPoint = document.getElementById("header");
 
   // 入力されたテキストを取得
   inputBtn.addEventListener("click", () => {
     const inputText = document.getElementById("input" + [i]).value;
 
-    console.log(inputText);
-    console.log(atomicSymbol.name[i]);
-
     if (inputText === atomicSymbol.name[i]) {
+      alert("正解です！");
       nameContainer.classList.add("symbol-appear");
+      number--;
+      displayPoint.innerHTML = `カウントダウン　残り ${number}問`;
+      if (number === 0) {
+        document.querySelector(".animate-title").classList.toggle("inview");
+      }
     } else {
+      alert("もう一度！");
       document.getElementById("input" + [i]).value = "";
     }
   });
@@ -112,15 +119,20 @@ for (let i = 0; i < atomicSymbol.symbol.length; i++) {
 for (let i = 0; i < atomicSymbol.symbol.length; i++) {
   const inputText = document.getElementById("input" + [i]);
   const nameContainer = document.getElementById("name" + [i]);
+  const displayPoint = document.getElementById("header");
   inputText.addEventListener("keypress", enterkeyClick);
   function enterkeyClick(e) {
     if (e.keyCode === 13) {
       if (
         document.getElementById("input" + [i]).value === atomicSymbol.name[i]
       ) {
-        document.getElementById("input" + [i]).value = "";
         alert("正解です！");
         nameContainer.classList.add("symbol-appear");
+        number--;
+        displayPoint.innerHTML = `カウントダウン　残り ${number}問`;
+        if (number === 0) {
+          document.querySelector(".animate-title").classList.toggle("inview");
+        }
       } else {
         alert("もう一度！");
         document.getElementById("input" + [i]).value = "";
